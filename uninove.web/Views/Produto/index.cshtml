@@ -1,0 +1,22 @@
+
+<h1>Catálogo de Produtos</h1>
+
+<table border="1">
+
+    <tr>
+        <th>Produto</th>
+        <th>Preço</th>
+    </tr>
+
+@for (int i = 0; i < ViewBag.Produtos.Count; i++)
+
+{
+
+    <tr>
+        <td>@ViewBag.Produtos[i]</td>
+        <td>R$ @ViewBag.Precos[i]</td>
+    </tr>
+
+}
+
+</table>
