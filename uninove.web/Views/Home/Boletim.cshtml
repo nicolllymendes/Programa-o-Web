@@ -1,0 +1,87 @@
+
+<h1>Boletim</h1>
+
+<table border="1">
+
+<tr>
+    <th>Disciplina</th>
+    <th>Nota</th>
+    <th>Status</th>
+    <th>Classificação</th>
+</tr>
+
+@{
+    double soma = 0;
+}
+
+@for (int i = 0; i < ViewBag.Disciplinas.Count; i++)
+{
+    double nota = ViewBag.Notas[i];
+    soma += nota;
+<tr>
+
+    <td>@ViewBag.Disciplinas[i]</td>
+    <td>@nota</td>
+
+<td>
+
+@if (nota >= 6)
+
+{
+    <span style="color:green;">Aprovado</span>
+}
+
+else
+{
+    <span style="color:red;">Reprovado</span>
+}
+
+</td>
+
+<td>
+
+@switch ((int)nota)
+
+{
+
+    case 9:
+    case 10:
+
+        <span>A</span>
+        break;
+
+    case 7:
+    case 8:
+
+        <span>B</span>
+        break;
+
+    case 5:
+    case 6:
+
+        <span>C</span>
+        break;
+
+    default:
+
+        <span>D</span>
+        break;
+
+}
+
+</td>
+
+</tr>
+
+}
+
+<tr>
+
+    <td colspan="4">
+        Média Geral:
+        @(soma / ViewBag.Notas.Count)
+
+    </td>
+
+</tr>
+</table>

@@ -5,20 +5,28 @@ using uninove.web.Models;
 namespace uninove.web.Controllers;
 
 public class HomeController : Controller
-{
-    public IActionResult Index()
-    {
-        return View();
-    }
+        return 
+public IActionResult Boletim()
 
-    public IActionResult Privacy()
-    {
-        return View();
-    }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+
+    ViewBag.Disciplinas = new List<string>()
+
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-}
+        "Matemática",
+        "Português",
+        "História",
+        "Biologia"
+    };
+
+    ViewBag.Notas = new List<double>()
+
+    {
+        9,
+        7,
+        5,
+        4
+    };
+
+    return View();
+
